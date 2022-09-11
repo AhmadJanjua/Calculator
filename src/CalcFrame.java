@@ -43,6 +43,7 @@ public class CalcFrame extends JFrame {
 
         var blank = new JButton();
         blank.setBackground(Color.GRAY);
+        blank.setEnabled(false);
 
         // Add buttons to the gridPanel
         gridPanel.add(numButtons[7]);
@@ -92,8 +93,8 @@ class CalcButton extends JButton {
 
     public CalcButton(String text, CalcAction action) {
         super(text);
-        setBackground(Color.GRAY);
-        setForeground(Color.green);
+        setBackground(Color.LIGHT_GRAY);
+        setForeground(Color.BLUE);
         addActionListener(action);
     }
 }
