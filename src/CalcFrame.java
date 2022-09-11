@@ -21,10 +21,10 @@ public class CalcFrame extends JFrame {
         var font = screen.getFont().deriveFont(Font.PLAIN, 25f);
         
         //Set window size
-        setSize(500,400);
+        setSize(350,350);
 
         // Set up grid to hold all the buttons
-        gridPanel = new JPanel(new GridLayout(3,6));
+        gridPanel = new JPanel(new GridLayout(4,5));
 
         // Create all number buttons and add action listeners
         JButton numButtons[] = new JButton[10];
@@ -37,32 +37,43 @@ public class CalcFrame extends JFrame {
         var divB = new CalcButton( "÷",  action);
         var addB = new CalcButton( "+",  action);
         var subB = new CalcButton( "-",  action);
+        Font subFont = subB.getFont().deriveFont(Font.PLAIN, 25f);
+        subB.setFont(subFont);
         var equB = new CalcButton( "=",  action);
         var clrB = new CalcButton( "C",  action);
         var decB = new CalcButton( ".",  action);
-
-        var blank = new JButton();
-        blank.setBackground(Color.GRAY);
-        blank.setEnabled(false);
+        var signB = new CalcButton("+/-", action);
+        //Blank buttons
+        JButton blanks[] = new JButton[2];
+        for(int i=0; i<2; i++) {
+            blanks[i] = new JButton();
+            blanks[i].setBackground(Color.LIGHT_GRAY);
+            blanks[i].setEnabled(false);
+        }
 
         // Add buttons to the gridPanel
         gridPanel.add(numButtons[7]);
         gridPanel.add(numButtons[8]);
         gridPanel.add(numButtons[9]);
         gridPanel.add(addB);
-        gridPanel.add(subB);
         gridPanel.add(clrB);
+
         gridPanel.add(numButtons[4]);
         gridPanel.add(numButtons[5]);
         gridPanel.add(numButtons[6]);
-        gridPanel.add(multB);
-        gridPanel.add(divB);
+        gridPanel.add(subB);
         gridPanel.add(decB);
+
         gridPanel.add(numButtons[1]);
         gridPanel.add(numButtons[2]);
         gridPanel.add(numButtons[3]);
+        gridPanel.add(multB);
+        gridPanel.add(signB);
+        
+        gridPanel.add(blanks[0]);
         gridPanel.add(numButtons[0]);
-        gridPanel.add(blank);
+        gridPanel.add(blanks[1]);
+        gridPanel.add(divB);
         gridPanel.add(equB);
         
         
